@@ -1,0 +1,95 @@
+/* ==========================================
+   1. AUTHOR INFO - Sử dụng Flexbox (1D Layout)
+   ========================================== */
+.author-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.author-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* ==========================================
+   2. MOSAIC GALLERY - Sử dụng CSS Grid (2D Layout)
+   ========================================== */
+.mosaic-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 200px);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Ảnh chính chiếm 2 hàng */
+.photo-main {
+    grid-row: span 2;
+    background-color: #dc3545;
+}
+
+.photo-sub-1 {
+    background-color: #0d6efd;
+}
+
+.photo-sub-2 {
+    background-color: #198754;
+}
+
+/* Responsive cho Gallery & Author Info trên Mobile */
+@media (max-width: 768px) {
+    .mosaic-gallery {
+        grid-template-columns: 1fr; /* Chuyển về 1 cột duy nhất */
+        grid-template-rows: auto;
+    }
+
+    .photo-main {
+        grid-row: span 1;
+        height: 250px;
+    }
+
+    .photo-sub-1, .photo-sub-2 {
+        height: 180px;
+    }
+
+    .author-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
